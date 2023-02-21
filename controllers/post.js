@@ -1,10 +1,18 @@
 const Post = require('../models/post')
 
+// exports.getPosts = (req, res) => {
+//   //res.send('Hello world from Node JS routes folder')
+//   res.json({
+//     posts: [{ title: 'First post' }, { title: 'Second Post' }],
+//   })
+// }
+
 exports.getPosts = (req, res) => {
-  //res.send('Hello world from Node JS routes folder')
-  res.json({
-    posts: [{ title: 'First post' }, { title: 'Second Post' }],
-  })
+  const posts = Post.find().select("_id title body")
+    .then((posts) => {
+      res.json({ posts })
+    })
+    .catch((err) => console.log(err))
 }
 
 //module.exports = { getPosts }
