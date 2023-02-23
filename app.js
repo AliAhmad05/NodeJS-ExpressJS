@@ -18,7 +18,7 @@ mongoose.connection.on('error', (err) => {
   console.log(`DB connection error: ${err.message}`)
 })
 
-//middleware
+//middlewares
 const myOwnMiddleWare = (req, res, next) => {
   console.log('Middleware Applied!! by Ali')
   next()
